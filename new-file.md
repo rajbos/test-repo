@@ -1,5 +1,4 @@
-new-file here!  
-new line here  
-new line 3  
-new line 4  
+Hello NDC London!
 
+
+![hello](https://media.giphy.com/media/Cmr1OMJ2FN0B2/giphy.gif)
