@@ -12,3 +12,15 @@ jobs:
     steps:
     - name: Hello world action step
       uses: rajbos/actions-testing@v1
+
+  testing-container:
+    runs-on: ubuntu-latest
+    container: azul/zulu-openjdk-alpine:8-jre
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: What OS is running
+        run: uname -a
+
+      - name: What Java version do we have?
+        run: java -version
