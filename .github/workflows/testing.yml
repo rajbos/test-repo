@@ -3,6 +3,8 @@ on:
   push:
     branches: 
       - main
+    paths:
+      - '**/testing.yml
   workflow_dispatch:
 
 jobs:
