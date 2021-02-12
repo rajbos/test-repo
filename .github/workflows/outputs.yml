@@ -7,9 +7,9 @@ on:
 jobs:
   output_value_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Send output
     outputs:  
-      anOutputName: ${{steps.output_step.my_output}}
+      anOutputName: ${{ steps.output_step.my_output }}
     steps:
     - id: output_step
       shell: pwsh
