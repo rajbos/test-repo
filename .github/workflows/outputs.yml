@@ -1,0 +1,26 @@
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+jobs:
+  output_value_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    #outputs:  update: ${{steps.update_step.outputs.update}}
+    steps:
+    - id: output_step
+      shell: pwsh
+      name: Output variable step
+      run: | 
+        $myValue = $true
+        Write-Host "Logging the output value generated [$myValue]"
+        echo "::set-output name=my_output::$myValue"
+               
+  pick-up-output-value:
+    runs-on: ubuntu-latest
+    needs: output_value_job
+    name: The job that uses 
+    steps:
+    - run: Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
