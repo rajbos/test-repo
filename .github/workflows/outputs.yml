@@ -4,6 +4,9 @@ on:
       - main
   workflow_dispatch:
 
+# first job generates a value and stores that
+# second job uses the stored value
+
 jobs:
   output_value_job:
     runs-on: ubuntu-latest
@@ -26,7 +29,6 @@ jobs:
     steps:
     - shell: pwsh
       run: |
-        Write-Host "1. The output we got here is [ ${{ needs.output_value_job.outputs.my_output }} ]" 
-        Write-Host "2. The output we got here is [ ${{ needs.output_value_job.outputs.output_value }} ]"
-        Write-Host "3. The output we got here is [ ${{ needs.output_value_job.outputs.anOutputName }} ]"
-    - run: echo ${{ needs.output_value_job.outputs.anOutputName }}
+        Write-Host "The output we got here is [ ${{ needs.output_value_job.outputs.anOutputName }} ]"
+
+    - run: echo "Output value =" ${{ needs.output_value_job.outputs.anOutputName }}
