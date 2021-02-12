@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     outputs:  
-      update: ${{steps.output_value_job.output_value}}
+      anOutputName: ${{steps.output_step.output_name}}
     steps:
     - id: output_step
       shell: pwsh
@@ -26,5 +26,6 @@ jobs:
     steps:
     - shell: pwsh
       run: |
-        Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
-        Write-Host "The output we got here is [${{ needs.output_value_job.outputs.output_value }}]"
+        Write-Host "1. The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
+        Write-Host "2. The output we got here is [${{ needs.output_value_job.outputs.output_value }}]"
+        Write-Host "3. The output we got here is [${{ needs.output_value_job.outputs.anOutputName }}]"
