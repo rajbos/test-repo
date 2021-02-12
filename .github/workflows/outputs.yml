@@ -2,6 +2,8 @@ on:
   push:
     branches: 
       - main
+    paths:
+    - '**/outputs.yml'
   workflow_dispatch:
 
 # first job generates a value and stores that
