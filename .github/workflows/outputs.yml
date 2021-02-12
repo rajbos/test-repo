@@ -21,6 +21,7 @@ jobs:
   pick-up-output-value:
     runs-on: ubuntu-latest
     needs: output_value_job
-    name: The job that uses 
+    name: The job that uses the output from the first job
     steps:
-    - run: Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
+    - shell: pwsh
+      run: Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
