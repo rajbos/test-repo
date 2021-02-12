@@ -29,6 +29,10 @@ jobs:
     steps:
     - shell: pwsh
       run: |
-        Write-Host "The output we got here is [ ${{ needs.output_value_job.outputs.anOutputName }} ]"
+        Write-Host "The output we got using spaces here is [ ${{ needs.output_value_job.outputs.anOutputName }} ]"
+        Write-Host "The output we got NOT using spaces here is [ ${{needs.output_value_job.outputs.anOutputName}} ]"
 
-    - run: echo "Output value =" ${{ needs.output_value_job.outputs.anOutputName }}
+    - name: Testing in shell using accolades with/without spaces
+      run: |
+         echo "Output value using spaces =" ${{ needs.output_value_job.outputs.anOutputName }}
+         echo "Output value NOT using spaces =" ${{needs.output_value_job.outputs.anOutputName}}
