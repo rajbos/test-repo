@@ -7,6 +7,8 @@ on:
     - '**/testing.yml'
   workflow_dispatch:
 
+# testing running the action inside a container
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
