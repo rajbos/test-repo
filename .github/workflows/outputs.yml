@@ -8,7 +8,8 @@ jobs:
   output_value_job:
     runs-on: ubuntu-latest
     name: A job to say hello
-    #outputs:  update: ${{steps.update_step.outputs.update}}
+    outputs:  
+      update: ${{steps.output_value_job.output_value}}
     steps:
     - id: output_step
       shell: pwsh
@@ -24,4 +25,6 @@ jobs:
     name: The job that uses the output from the first job
     steps:
     - shell: pwsh
-      run: Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
+      run: |
+        Write-Host "The output we got here is [${{ needs.output_value_job.outputs.my_output }}]"
+        Write-Host "The output we got here is [${{ needs.output_value_job.outputs.output_value }}]"
