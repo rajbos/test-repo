@@ -6,4 +6,8 @@ on:
 
 jobs:
   steps:
+  - uses: rajbos/actions-testing@v1
+    name: Public Action
+    
   - uses: rajbos/private-action-test
+    name: Private Action
