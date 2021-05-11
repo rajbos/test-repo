@@ -5,9 +5,11 @@ on:
 
 
 jobs:
-  steps:
-  - uses: rajbos/actions-testing@v1
-    name: Public Action
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: rajbos/actions-testing@v1
+      name: Public Action
     
-  - uses: rajbos/private-action-test
-    name: Private Action
+    - uses: rajbos/private-action-test
+      name: Private Action
