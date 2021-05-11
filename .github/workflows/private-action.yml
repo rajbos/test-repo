@@ -11,5 +11,5 @@ jobs:
     - uses: rajbos/actions-testing@v1
       name: Public Action
     
-    - uses: rajbos/private-action-test
+    - uses: rajbos/private-action-test@v1
       name: Private Action
