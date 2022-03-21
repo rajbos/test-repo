@@ -86,16 +86,3 @@ jobs:
           echo $(cat .env.dev)
           echo "------------------------------------------"
           env | sort
-
-      - uses: shine1594/secrets-to-env-action@master
-        with:
-          test_secrets: ${{ secrets.MY_SUPER_SECRET }}
-          secrets: ${{ toJSON(secrets) }}
-          secrets_env: all
-
-      - run: |
-          ls -la
-          echo $(cat .env)
-          echo $(cat .env.dev)
-          echo "------------------------------------------"
-          env | sort
