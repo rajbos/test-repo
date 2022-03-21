@@ -22,6 +22,16 @@ jobs:
           MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }}
         run: env | sort
 
+  
+  env-var-test-ubuntu-echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: default
+        run: |
+          echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+          echo "MY_SUPER_SECRET:$MY_SUPER_SECRET"
+          echo "AGENT_TOOLSDIRECTORY: $AGENT_TOOLSDIRECTORY"
+
   job-env-var-test-ubuntu:
     runs-on: ubuntu-latest
     env:
