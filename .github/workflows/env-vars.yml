@@ -85,5 +85,4 @@ jobs:
           echo $(cat .env)
           echo $(cat .env.dev)
           echo "------------------------------------------"
-          env | sorttest
-          
+          env | sort
