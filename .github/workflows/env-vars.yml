@@ -6,7 +6,7 @@ on:
     - .github/workflows/env-vars.yml
 
 jobs:
-  env-var-test:
+  env-var-test-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: default
@@ -22,10 +22,26 @@ jobs:
           MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }}
         run: env | sort
 
-  job-env-var-test:
+  job-env-var-test-ubuntu:
     runs-on: ubuntu-latest
     env:
       MY_ENV: my_env_value
     steps:
       - name: default
         run: env | sort
+
+  env-var-test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: default
+        run: gci env:* | sort-object name
+
+      - name: with GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gci env:* | sort-object name
+
+      - name: with MY_SUPER_SECRET
+        env:
+          MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }}
+        run: gci env:* | sort-object name
