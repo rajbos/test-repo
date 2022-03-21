@@ -86,3 +86,14 @@ jobs:
           echo $(cat .env.dev)
           echo "------------------------------------------"
           env | sort
+
+      - name: Get runner environment variables
+        id: runner
+        uses: msansoni/runner-environment-action@v1
+
+      - name: echo output
+        with:
+          platform: ${{ steps.runner.outputs.platform }}
+          MY_SUPER_SECRET: ${{ steps.runner.outputs.MY_SUPER_SECRET }}
+        run: |
+          env | sort  
