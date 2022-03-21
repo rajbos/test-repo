@@ -1,8 +1,9 @@
 on:
   push:
-  
-  workflow_dispatch:
+    paths:
+    - .github/workflows/env-vars.yml
 
+  workflow_dispatch:
 
 jobs:
   job_1:

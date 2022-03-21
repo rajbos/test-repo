@@ -1,5 +1,6 @@
 on:
   workflow_dispatch:
+  
   push:
     paths:
     - .github/workflows/env-vars.yml
@@ -8,8 +9,15 @@ jobs:
   env-var-test:
     runs-on: ubuntu-latest
     steps:
-      - run: env
+      - name: default
+        run: env
 
-      - env:
+      - name: with GITHUB_TOKEN
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: env
+
+      - name: with MY_SUPER_SECRET
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_SUPER_SECRET }}
         run: env
