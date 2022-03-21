@@ -80,4 +80,7 @@ jobs:
           secrets: ${{ toJSON(secrets) }}
           secrets_env: all
 
-      - run: cat .env
+      - run: |
+          ls -la
+          cat .env
+          cat .env.dev
