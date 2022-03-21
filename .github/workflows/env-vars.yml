@@ -92,7 +92,7 @@ jobs:
         uses: msansoni/runner-environment-action@v1
 
       - name: echo output
-        with:
+        env:
           platform: ${{ steps.runner.outputs.platform }}
           MY_SUPER_SECRET: ${{ steps.runner.outputs.MY_SUPER_SECRET }}
         run: |
