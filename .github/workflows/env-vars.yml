@@ -84,3 +84,6 @@ jobs:
           ls -la
           echo $(cat .env)
           echo $(cat .env.dev)
+          echo "------------------------------------------"
+          env | sorttest
+          
