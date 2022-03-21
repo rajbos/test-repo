@@ -40,6 +40,12 @@ jobs:
           echo "GITHUB_TOKEN: $GITHUB_TOKEN"
           echo "MY_SUPER_SECRET:$MY_SUPER_SECRET"
           echo "AGENT_TOOLSDIRECTORY: $AGENT_TOOLSDIRECTORY"
+        
+      - name: default
+        run: |
+          echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+          echo "MY_SUPER_SECRET:$MY_SUPER_SECRET"
+          echo "AGENT_TOOLSDIRECTORY: $AGENT_TOOLSDIRECTORY"
 
   job-env-var-test-ubuntu:
     runs-on: ubuntu-latest
