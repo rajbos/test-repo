@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-    - .github/workflows/env-vars.yml
+    - .github/workflows/private-action.yml
 
   workflow_dispatch:
 
