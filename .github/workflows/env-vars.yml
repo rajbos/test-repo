@@ -70,3 +70,14 @@ jobs:
         env:
           MY_SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET }}
         run: gci env:* | sort-object name
+
+
+  action-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shine1594/secrets-to-env-action@master
+        with:
+          secrets: ${{ toJSON(secrets) }}
+          secrets_env: all
+
+      - run: cat .env
