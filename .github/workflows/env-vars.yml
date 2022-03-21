@@ -82,5 +82,5 @@ jobs:
 
       - run: |
           ls -la
-          cat .env
-          cat .env.dev
+          echo $(cat .env)
+          echo $(cat .env.dev)
