@@ -41,8 +41,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         run: |
-          #git clone https://x:${GITHUB_TOKEN}@github.com/rajbos/private-action-test.git
           git clone https://x:${GITHUB_TOKEN}@github.com/rajbos/test-repo
+          cd test-repo
           
           echo "git-clone-commit $(date +%Y%m%d_%H%M%S)" >> temp/datetime.txt
 
