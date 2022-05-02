@@ -1,4 +1,4 @@
-# test git commit & push back to repo
+# test git commit & push back to repo with various options (check each job)
 name: git commit + push
 on:
   push:
@@ -9,6 +9,8 @@ on:
   
 jobs:
   checkout-git-commit:
+    # run the normal checkout action and use that to make commits and push back using the GITHUB_TOKEN
+    # more info on access tokens here: https://devopsjournal.io/blog/2022/01/03/GitHub-Tokens
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,16 +25,20 @@ jobs:
           git commit -m "Added timestamp"
           git push
           
+          
+          
   git-clone-commit:
+    # run a manual checkout action with an access token from a GitHub App
+    # more info on access tokens here: https://devopsjournal.io/blog/2022/01/03/GitHub-Tokens
     needs: checkout-git-commit
-    runs-on: ubuntu-latest
-    env:
-      APPLICATION_ID: 155588      
+    runs-on: ubuntu-latest  
     steps:
     
-      - name: Get Token
+      - name: Get Access Token for the linked GitHub App
         id: get_workflow_token
-        uses: peter-murray/workflow-application-token-action@v1
+        env:
+          APPLICATION_ID: 155588      
+        uses: peter-murray/workflow-application-token-action@e8782d687a306fb13d733244d0f2a50e272d3752
         with:
           application_id: ${{ env.APPLICATION_ID }}
           application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
