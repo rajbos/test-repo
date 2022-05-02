@@ -26,9 +26,22 @@ jobs:
   git-clone-commit:
     needs: checkout-git-commit
     runs-on: ubuntu-latest
+    env:
+      APPLICATION_ID: 155588      
     steps:
-      - run: |
-          git clone https://github.com/rajbos/private-action-test.git
+    
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v1
+        with:
+          application_id: ${{ env.APPLICATION_ID }}
+          application_private_key: ${{ secrets.GH_APPLICATION_PRIVATE_KEY }}
+    
+      - name: Git Clone with Access Token
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        run: |
+          git clone https://${GITHUB_TOKEN}@github.com/rajbos/private-action-test.git
           
           echo "git-clone-commit $(date +%Y%m%d_%H%M%S)" >> temp/datetime.txt
 
