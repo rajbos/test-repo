@@ -1,0 +1,24 @@
+# test git commit & push back to repo
+name: git commit + push
+on:
+  push:
+    paths:
+      - .github/workflows/git-commit.yml
+  workflow_dispatch:
+  
+  
+jobs:
+  checkout-git-commit:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
+    
+    - run: |
+        echo "$(date +%Y%m%d_%H%M%S)" >> /temp/datetime.txt
+        
+        git config email "bot@github.com"
+        git config user "bot@github.com"
+        
+        git add .
+        git commit -m "Added timestamp"
+        git push
