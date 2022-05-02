@@ -58,3 +58,10 @@ jobs:
           git add .
           git commit -m "Added timestamp"
           git push
+
+
+   #todo: add a job that does the same, but with the CLI: https://cli.github.com/
+   
+   #todo: add a job that does the same, but with github-script
+   
+   #todo: add a job that does the same, but with the REST api
