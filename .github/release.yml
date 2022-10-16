@@ -8,11 +8,11 @@ changelog:
     - title: Breaking Changes 🛠
       labels:
         - Semver-Major
-        - Breaking-change
+        - breaking-change
     - title: Exciting New Features 🎉
       labels:
         - Semver-Minor
-        - Enhancement
+        - enhancement
     - title: Other Changes
       labels:
         - "*"
