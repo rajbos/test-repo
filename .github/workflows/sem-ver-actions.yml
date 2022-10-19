@@ -10,8 +10,14 @@ jobs:
     # works, as this is an actual tag in the repo
     - uses: actions/checkout@v3
     
+  job2:
+    runs-on: ubuntu-latest
+    steps:
     # works, as this is an actual tag in the repo
     - uses: actions/checkout@v3.1.0
     
+  job3:
+    runs-on: ubuntu-latest
+    steps:
     # does not work, as this is NOT an actual tag in the repo
     - uses: actions/checkout@v3.1
