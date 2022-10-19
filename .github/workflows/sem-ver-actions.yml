@@ -1,0 +1,16 @@
+on:
+ push:
+   paths:
+   - .github/workflows/sem-ver-actions.yml
+     
+jobs:
+  job1:
+    steps:
+    # works, as this is an actual tag in the repo
+    - uses: actions/checkout@v3
+    
+    # works, as this is an actual tag in the repo
+    - uses: actions/checkout@v3.1.0
+    
+    # does not work, as this is NOT an actual tag in the repo
+    - uses: actions/checkout@v3.1
