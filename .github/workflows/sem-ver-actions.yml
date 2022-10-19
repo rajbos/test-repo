@@ -5,6 +5,7 @@ on:
      
 jobs:
   job1:
+    runs-on: ubuntu-latest
     steps:
     # works, as this is an actual tag in the repo
     - uses: actions/checkout@v3
