@@ -1,0 +1,25 @@
+on:
+  push:
+    paths:
+    - .github/workflows/push-container-ghcr.yml
+    
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+         echo "test repo push content" > file.txt
+         echo "FROM ubuntu:20.04" >> Dockerfile
+         echo "COPY file.txt ${HOME}\file.txt" >> Dockerfile
+         
+         docker build -t local-ubuntu .
+         
+    - name: Log in to the Container registry
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          registry: docker push ghcr.io/rajbos
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+    - run: |
+          docker push ghcr.io/rajbos/ubuntu/ubuntu:20.04
